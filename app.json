@@ -1,4 +1,11 @@
 {
   "name": "reactNativeExpoMacosStarter",
-  "displayName": "reactNativeExpoMacosStarter"
+  "version": "1.0.0",
+  "slug": "react-native-expo-macos-starter",
+  "scheme": "reactnativeexpomacosstarter",
+  "icon": "./assets/icon.png",
+  "userInterfaceStyle": "automatic",
+  "assetBundlePatterns": [
+    "**/*"
+  ]
 }
