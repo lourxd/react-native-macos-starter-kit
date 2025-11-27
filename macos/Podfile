@@ -27,6 +27,15 @@ target 'reactNativeExpoMacosStarter-macOS' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # React Native CLI autolinking for community packages
+  use_native_modules!
+
+  # React Native Reanimated (manual entry needed)
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  # React Native Safe Area Context (manual entry needed)
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
   post_install do |installer|
     react_native_post_install(installer)
   end

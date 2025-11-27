@@ -48,22 +48,44 @@ open macos/reactNativeExpoMacosStarter.xcworkspace
 | `npm run lint` | Run ESLint |
 | `npm test` | Run tests with Jest |
 
-## Expo Packages
+## macOS-Compatible Packages
 
-This project includes several Expo packages that were originally developed for iOS and Android but work well on macOS:
+The following packages have been tested and work on macOS:
 
-| Package | Description |
-|---------|-------------|
-| `expo-asset` | Provides an interface to Expo's asset system, allowing you to load and manage assets like images and fonts |
-| `expo-constants` | Provides system information that remains constant throughout the lifetime of your app |
-| `expo-file-system` | Provides access to the local file system, enabling read/write operations |
-| `expo-font` | Allows loading and using custom fonts in your application |
-| `expo-keep-awake` | Prevents the screen from sleeping while your app is active |
-| `expo-sqlite` | Provides access to a SQLite database for local data persistence |
+| Package | Min macOS | Description |
+|---------|-----------|-------------|
+| `expo-asset` | - | Asset management for images and fonts |
+| `expo-constants` | - | System information constants |
+| `expo-file-system` | - | Local file system access |
+| `expo-font` | - | Custom font loading |
+| `expo-keep-awake` | - | Prevent screen from sleeping |
+| `expo-sqlite` | - | SQLite database |
+| `react-native-reanimated` | 10.14 | Animations library |
+| `@react-navigation/native` | - | Navigation framework |
+| `@react-navigation/stack` | - | JS-based stack navigator |
+| `react-native-svg` | 10.14 | SVG rendering |
+| `react-native-webview` | 10.13 | Web content display |
+| `lottie-react-native` | 10.15 | Lottie animations |
+| `react-native-keychain` | 10.13 | Secure credential storage |
+| `@react-native-community/netinfo` | 10.14 | Network information |
+| `@react-native-async-storage/async-storage` | 10.15 | Key-value storage |
+| `react-native-localize` | 10.15 | Localization utilities |
+| `react-native-safe-area-context` | 10.15 | Safe area insets |
+| `react-native-document-picker-macos` | - | File and directory picker |
 
-These packages leverage the shared architecture between iOS and macOS (both built on Apple's frameworks), making them compatible with macOS builds through `react-native-macos`.
+> **Tip:** To check if a package supports macOS, look for `osx` or `macos` in its `.podspec` file under `s.platforms` or `s.osx.deployment_target`.
 
 ## Installing Libraries
+
+### Expo packages
+
+You can use `npx expo install` to install packages that are compatible with the Expo managed ecosystem. This ensures you get versions that are compatible with your current Expo SDK version:
+
+```bash
+npx expo install expo-package-name
+```
+
+Many Expo packages work on macOS thanks to shared Apple frameworks between iOS and macOS. Check the [Expo documentation](https://docs.expo.dev) to see available packages.
 
 ### JavaScript-only libraries
 

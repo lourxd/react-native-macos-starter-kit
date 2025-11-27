@@ -1,131 +1,86 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * React Native macOS Starter Kit
+ * Example integrations for macOS-compatible packages
  *
  * @format
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {useColorScheme} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+  HomeScreen,
+  ReanimatedScreen,
+  NavigationScreen,
+  SVGScreen,
+  WebViewScreen,
+  LottieScreen,
+  KeychainScreen,
+  NetInfoScreen,
+  AsyncStorageScreen,
+  LocalizeScreen,
+  DocumentPickerScreen,
+  DeviceInfoScreen,
+  RootStackParamList,
+} from './screens';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+const Stack = createStackNavigator<RootStackParamList>();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  const colors = {
+    background: isDarkMode ? '#1c1c1e' : '#f2f2f7',
+    cardBackground: isDarkMode ? '#2c2c2e' : '#ffffff',
+    primaryText: isDarkMode ? '#ffffff' : '#000000',
+    accent: '#007aff',
   };
 
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the reccomendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
-
   return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: colors.background,
+            shadowColor: 'transparent',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: colors.accent,
+          headerTitleStyle: {
+            fontSize: 17,
+            fontWeight: '600',
+            letterSpacing: -0.41,
+            color: colors.primaryText,
+          },
+          headerBackTitleStyle: {
+            fontSize: 17,
+            letterSpacing: -0.41,
+          },
+          cardStyle: {
+            backgroundColor: colors.background,
+          },
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen name="Reanimated" component={ReanimatedScreen} />
+        <Stack.Screen name="Navigation" component={NavigationScreen} />
+        <Stack.Screen name="SVG" component={SVGScreen} />
+        <Stack.Screen name="WebView" component={WebViewScreen} />
+        <Stack.Screen name="Lottie" component={LottieScreen} />
+        <Stack.Screen name="Keychain" component={KeychainScreen} />
+        <Stack.Screen name="NetInfo" component={NetInfoScreen} />
+        <Stack.Screen name="AsyncStorage" component={AsyncStorageScreen} />
+        <Stack.Screen name="Localize" component={LocalizeScreen} />
+        <Stack.Screen name="DocumentPicker" component={DocumentPickerScreen} options={{title: 'Document Picker'}} />
+        <Stack.Screen name="DeviceInfo" component={DeviceInfoScreen} options={{title: 'Device Info'}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

@@ -8,16 +8,27 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-community/netinfo": "11.4.1",
+    "@react-navigation/native": "^7.1.22",
+    "@react-navigation/stack": "^7.6.8",
     "expo": "^53.0.0",
-    "react": "19.0.0",
-    "react-native": "0.78.3",
-    "react-native-macos": "^0.78.6",
     "expo-asset": "~11.1.7",
     "expo-constants": "~17.1.7",
     "expo-file-system": "~18.1.11",
     "expo-font": "~13.3.2",
     "expo-keep-awake": "~14.1.4",
-    "expo-sqlite": "~15.2.14"
+    "expo-sqlite": "~15.2.14",
+    "lottie-react-native": "7.2.2",
+    "react": "19.0.0",
+    "react-native": "0.78.3",
+    "react-native-document-picker-macos": "^1.0.0",
+    "react-native-keychain": "^10.0.0",
+    "react-native-localize": "^3.6.0",
+    "react-native-macos": "^0.78.6",
+    "react-native-reanimated": "~3.17.4",
+    "react-native-svg": "15.11.2",
+    "react-native-webview": "13.13.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
