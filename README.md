@@ -189,3 +189,6 @@ cd ..
 - [React Native](https://reactnative.dev) - Learn more about React Native
 - [React Native macOS](https://microsoft.github.io/react-native-windows/docs/rnm-getting-started) - React Native for macOS documentation
 - [Expo](https://docs.expo.dev) - Expo documentation
+
+
+Pull requests are welcome and appreciated! If you have improvements, bug fixes, or new features to add, feel free to open a PR.
